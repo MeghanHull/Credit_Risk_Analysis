@@ -1,3 +1,7 @@
+# Local files
+credit_risk_resampling_starter_code.ipynb
+credit_risk_ensemble_starter_code.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
