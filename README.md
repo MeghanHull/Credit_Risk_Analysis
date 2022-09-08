@@ -5,7 +5,7 @@ LendingClub, a peer-to-peer (P2P) lending service, wants to use machine learning
 - Providing faster & more reliable loan experience (i.e. attracting customers)
 - More accurate identification of good loan candidates (i.e. decreasing defaults)
 <!-- Peer-to-peer (P2P) lending is a form of financial technology that allows people to lend or borrow money from one another without going through a bank. -->
-Since the number of good loans significantly exceeds the number of risky loans, imbalanced classification machine learning models will be considered.  LendingClub would like four resampling models and two ensemble models evaluated with their provided credit card credit dataset, as are outlined in ?.
+Since the number of good loans significantly exceeds the number of risky loans, imbalanced classification machine learning models will be considered.  LendingClub would like four resampling models and two ensemble models evaluated with their provided credit card credit dataset, as are outlined in [Methodology](#methodology).
 
 ## Purpose
 <!-- The purpose of this analysis is well defined (4 pt) -->
@@ -46,6 +46,7 @@ The machine learning models evaluated are listed in **Table 1**.
 | 4 | SMOTEENN | Combinatorial / Hybrid | 
 | 5 | BalancedRandomForestClassifier | Ensemble |
 | 6 | EasyEnsembleClassifier | Ensemble |
+
 **Note:** A random state of 1 is used for each sampling algorithm to ensure consistency between tests
 
 ### Resampling Models
@@ -84,10 +85,11 @@ Comparison of the six machine learning models showed:
 ![ML_Summary.png](Images/ML_Summary.png)
 
 From ***Table 3***, it can be concluded:
+- The accuracy scores for the resampling models are not particularly strong.  The Easy Ensemble Classifier may be bordering on overfitting
 - The incredibly low F1 scores and precision scores indicate none of the models are particularly good at identifying high credit risk.
-- Ensemble models okay for low credit risk.
+- The F1 and precision scores for the model identifying low credit risk are not good for the undersampling model, and the very high scores for the ensemble models may indicate overfitting.
 
 # Summary 
 <!-- There is a summary of the results (2 pt) -->
 <!-- There is a recommendation on which model to use, or there is no recommendation with a justification (3 pt) -->
-None of the models are particularly good at identifying high credit risk, based on the incredibly low F1 scores
+None of the models are particularly good at identifying high credit risk, based on the incredibly low F1 and precision scores.  Since accurately identifying high risk loans is a primary goal, it is not recommended to use the models as trained.  However, using more than a single fiscal quarter's worth of data for training may yield better results.  It is recommended to retrain the models with at least an entire year's worth of data.
