@@ -46,6 +46,16 @@ This project is to train and evaluate the perfomance of six machine learning mod
 ## Methodology
 An ETL of review data for Amazon Video Games was performed using the Google CoLab code [Amazon_Reviews_ETL.ipynb](Amazon_Reviews_ETL.ipynb), uploading the cleaned data to an AWS PostgreSQL database.  The table *vine_table* was exported as a *.csv* file, and preliminary statistics were analyzed using the Jupyter Notebook code [Vine_Review_Analysis.ipynb](Vine_Review_Analysis.ipynb).
 
+The two oversampling techniques used the following steps:
+1. View the count of the target classes using `Counter` from the collections library. 
+3. Train a logistic regression model with the resampled data.
+3. Calculate the balanced accuracy score from sklearn.metrics.
+4. Print the confusion matrix from sklearn.metrics.
+5. Generate a classication report using the `imbalanced_classification_report` from imbalanced-learn.
+
+**Note:** A random state of 1 is used for each sampling algorithm to ensure consistency between tests
+
+
 For the Vine Review analysis, the most useful Amazon Video Games reviews were filtered by:
 - At least 20 total votes (65379 of 1785997 total reviews)
 - At least 50% of votes were classified as helpful (40565 of 65379 reviews)
